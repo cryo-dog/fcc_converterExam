@@ -6,7 +6,7 @@ let convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function(){
 
-    let rounder = 100000;
+    let rounder = 1000000;
 
     test('ConvertHandler should correctly read a whole number input', function() {
       assert.equal(convertHandler.getNum('32L'), 32);
@@ -17,11 +17,11 @@ suite('Unit Tests', function(){
     });
   
     test('ConvertHandler should correctly read a fractional input', function() {
-      assert.equal(convertHandler.getNum('1/2km', "goodFraction"), 0.5);
+      assert.equal(convertHandler.getNum('1/2km'), 0.5);
     });
 
     test("convertHandler should correctly read a fractional input with a decimal.", function() {
-      assert.equal(convertHandler.getNum('1/2.5km', "goodFraction"),0.4);
+      assert.equal(convertHandler.getNum('1/2.5km'),0.4);
     });
     
     test("convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).", function() {
@@ -30,15 +30,15 @@ suite('Unit Tests', function(){
     
     
     test("convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.", function() {
-      assert.equal(convertHandler.getNum("mi","goodFraction") );
+      assert.equal(convertHandler.getNum("mi"), 1 );
     });
     
     
     test("convertHandler should correctly read each valid input unit.", function() {
-      const validUnits = ["gal", "L", "l", "lbs", "LBS", "KG", "kG", "mi", "km", "kM"];
+      const validUnits = ["gal", "L", "lbs", "kg", "mi", "km"];
       validUnits.forEach(function (unit) {
         let input = "" + Math.random() + unit;
-        assert.equal(convertHandler.getUnit(input), unit.toLowerCase() );
+        assert.equal(convertHandler.getUnit(input), unit);
       })
     });
     

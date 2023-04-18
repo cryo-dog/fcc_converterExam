@@ -3,9 +3,9 @@ function ConvertHandler() {
   const regexUnit = /[a-zA-Z]+$/;
   const regexFractionExtracter = /^(\d+(\.\d+)?)\/(\d+(\.\d+)?)$/;
   const arrayUnits = ["l", "kg", "km", "gal", "lbs", "mi"];
-  const getNumConsoles = true;
-  const getUnitConsoles = true;
-  const rounder = 100000;
+  const getNumConsoles = false;
+  const getUnitConsoles = false;
+  const rounder = 1000000;
 
   this.solveFractions = function(fracString) {
       //
@@ -158,7 +158,7 @@ function ConvertHandler() {
           break;
       };
       let returner;
-      typeof(result) == "string" ? returner = result : returner = Math.round(result*100000)/100000;
+      typeof(result) == "string" ? returner = result : returner = Math.round(result*rounder)/rounder;
       return returner;
     };
   
