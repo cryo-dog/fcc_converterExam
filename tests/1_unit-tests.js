@@ -46,6 +46,27 @@ suite('Unit Tests', function(){
     test("convertHandler should correctly return an error for an invalid input unit.", function() {
       assert.equal(convertHandler.getUnit("3mis"), "invalid unit" );
     });
+
+    test("convertHandler should return the correct return unit for each valid input unit.", function() {
+      const validUnits = ["gal", "L", "lbs", "kg", "mi", "km"];
+      const validReturnUnits = ["L", "gal", "kg", "lbs", "km", "mi"];
+      validUnits.forEach(function (unit, index) {
+        let input = "" + Math.random() + unit;
+        assert.equal(convertHandler.getReturnUnit(unit), validReturnUnits[index]);
+      });
+    });
+    
+
+    test("convertHandler should correctly return the spelled-out string unit for each valid input unit.", function() {
+      const validUnits = ["gal", "L", "lbs", "kg", "mi", "km"];
+      const validReturnUnits = ["gallons", "liters", "pounds", "kilograms", "miles", "kilometers"];
+      validUnits.forEach(function (unit, index) {
+        let input = "" + Math.random() + unit;
+        assert.equal(convertHandler.spellOutUnit(validUnits[index]), validReturnUnits[index]);
+      });
+    });
+    
+
     
     test("convertHandler should correctly convert gal to L.", function() {
       assert.equal(convertHandler.convert("1", "gal"), 3.78541 );
