@@ -10,8 +10,9 @@ function ConvertHandler() {
   this.solveFractions = function(fracString) {
       //
       fracString = fracString.split("/");
-      fracString = Math.round(rounder * fracString[0]/fracString[1])/rounder;
-      return fracString;
+      let fracDiv = fracString[0]/fracString[1];
+      let retur = Math.round(rounder * fracDiv)/rounder;
+      return retur;
   };
 
   this.getNum = function(input) {

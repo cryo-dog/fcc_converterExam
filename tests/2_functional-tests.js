@@ -68,4 +68,8 @@ suite('Functional Tests', function() {
           });
       });
 
+
+        // close the server after all tests are done
+
   });
+
