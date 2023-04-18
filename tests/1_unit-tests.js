@@ -6,7 +6,7 @@ let convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function(){
 
-    let rounder = 1000000;
+    let rounder = 100000;
 
     test('ConvertHandler should correctly read a whole number input', function() {
       assert.equal(convertHandler.getNum('32L'), 32);
@@ -48,11 +48,11 @@ suite('Unit Tests', function(){
     });
     
     test("convertHandler should correctly convert gal to L.", function() {
-      assert.equal(convertHandler.convert(1, "gal"), 3.78541 );
+      assert.equal(convertHandler.convert("1", "gal"), 3.78541 );
     });    
 
     test("convertHandler should correctly convert L to gal.", function() {
-      assert.equal(convertHandler.convert(1, "l"), Math.round(1/3.78541*rounder)/rounder);
+      assert.equal(convertHandler.convert("1", "l"), Math.round(1/3.78541*rounder)/rounder);
     });
         
     test("convertHandler should correctly convert mi to km.", function() {

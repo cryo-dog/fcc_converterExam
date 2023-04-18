@@ -5,7 +5,7 @@ function ConvertHandler() {
   const arrayUnits = ["l", "kg", "km", "gal", "lbs", "mi"];
   const getNumConsoles = false;
   const getUnitConsoles = false;
-  const rounder = 1000000;
+  const rounder = 100000;
 
   this.solveFractions = function(fracString) {
       //
@@ -134,6 +134,7 @@ function ConvertHandler() {
       const miToKm = 1.60934;
       let result;
       initUnit = initUnit.toLowerCase();
+      initNum = parseFloat(initNum);
       switch (initUnit) {
         case "gal":
           result = initNum * galToL;
@@ -158,7 +159,7 @@ function ConvertHandler() {
           break;
       };
       let returner;
-      typeof(result) == "string" ? returner = result : returner = Math.round(result*rounder)/rounder;
+      typeof(result) == "string" ? returner = result : returner = Math.round(result * rounder) / rounder;
       return returner;
     };
   
